@@ -5,59 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burak Bisneli - Portfolyo</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #d4d4d4;
-            color: #000000;
-        }
-        header {
-            background-color: #3b3b3b;
-            color: #000000;
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        .nav-buttons {
-            display: flex;
-            gap: 15px;
-        }
-        .nav-buttons button {
-            background-color: #b25938;
-            color: #000000;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-        }
-        section {
-            display: none; /* Başlangıçta gizlenmiş */
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background: #3b3b3b;
-            color: #000000;
-        }
+        /* Genel Stiller */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; transition: background-color 0.5s ease, color 0.5s ease; }
+        .theme-about { background-color: #f0f8ff; color: #333; }
+        .theme-projects { background-color: #222; color: #f5f5f5; }
+        .theme-tutorials { background-color: #faf0e6; color: #333; }
+
+        header { background-color: #343a40; color: #ffffff; padding: 20px; text-align: center; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 1000; }
+        header h1 { margin: 0; font-size: 24px; font-weight: 600; flex-grow: 1; text-align: left; }
+        .nav-buttons { display: flex; gap: 15px; }
+        .nav-buttons button { background-color: #495057; color: #ffffff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-size: 16px; transition: background-color 0.3s ease, transform 0.1s ease; }
+        .nav-buttons button:hover { background-color: #6c757d; }
+        .nav-buttons button:active { transform: scale(0.95); }
+
+        /* Animasyon ve Geçiş Efektleri */
+        .container { width: 80%; max-width: 1000px; margin: 50px auto; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); opacity: 0; transform: translateY(30px); transition: all 0.5s ease; }
+        .container.active { opacity: 1; transform: translateY(0); }
+
+        section { display: none; opacity: 0; transform: scale(0.9); transition: all 0.4s ease; }
+        section.active { display: block; opacity: 1; transform: scale(1); }
+
+        /* Projeler İç Navigasyon */
+        .project-nav-buttons { display: flex; gap: 15px; margin: 20px 0; justify-content: center; }
+        .project-nav-buttons button { background-color: #007bff; color: #ffffff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-size: 14px; transition: background-color 0.3s ease; }
+        .project-nav-buttons button:hover { background-color: #0056b3; }
+
+        /* Projeler Alt Bölümleri */
+        .sub-section { margin-top: 20px; display: none; }
+        .sub-section.active { display: block; }
+        .project-content { margin-top: 15px; }
+        .project-content img { max-width: 100%; border-radius: 5px; margin: 10px 0; }
+        .project-content video { max-width: 100%; border-radius: 5px; margin: 10px 0; }
+        
+        footer { text-align: center; padding: 10px; background: #343a40; color: #ffffff; margin-top: 50px; }
+
     </style>
 </head>
-<body>
+<body class="theme-about" onload="document.querySelector('.container').classList.add('active')">
 
     <header>
-        <h1>Burak Bisneli - Game Developer</h1>
+        <h1>Burak Bisneli - Oyun Geliştirici</h1>
         <div class="nav-buttons">
             <button onclick="showSection('about')">Hakkında</button>
             <button onclick="showSection('projects')">Projeler</button>
@@ -68,7 +55,7 @@
     <div class="container">
 
         <!-- Hakkında Bölümü -->
-        <section id="about">
+        <section id="about" class="active">
             <h2>Hakkında</h2>
             <p>Merhaba, ben Burak Bisneli. Yazılım geliştirme ve oyun geliştirme alanında çalışıyorum. Bu sayfada projelerimi, başarılarımı ve ders içeriklerimi bulabilirsiniz.</p>
         </section>
@@ -76,28 +63,53 @@
         <!-- Projeler Bölümü -->
         <section id="projects">
             <h2>Projeler</h2>
-            <div>
-                <h3>Proje 1</h3>
-                <p>Bu proje, ... ile ilgilidir.</p>
-                <a href="#">Detaylı İncele</a>
+
+            <!-- İç Navigasyon -->
+            <div class="project-nav-buttons">
+                <button onclick="showProjectSection('modelleme')">Modelleme</button>
+                <button onclick="showProjectSection('animasyon')">Animasyon</button>
+                <button onclick="showProjectSection('oyun')">Oyun</button>
             </div>
-            <div>
-                <h3>Proje 2</h3>
-                <p>Bu proje, ... ile ilgilidir.</p>
-                <a href="#">Detaylı İncele</a>
+            
+            <!-- Modelleme Kısmı -->
+            <div class="sub-section" id="modelleme">
+                <h3>Modelleme</h3>
+                <div class="project-content">
+                    <h4>Model 1</h4>
+                    <p>Açıklama: Bu model, modern ve estetik bir tarzda tasarlandı.</p>
+                    <img src="model1.jpg" alt="Model 1 Görseli">
+                    <img src="model2.jpg" alt="Model 2 Görseli">
+                </div>
+            </div>
+
+            <!-- Animasyon Kısmı -->
+            <div class="sub-section" id="animasyon">
+                <h3>Animasyon</h3>
+                <div class="project-content">
+                    <h4>Animasyon 1</h4>
+                    <p>Açıklama: Bu animasyon, karakter hareketlerini gösteriyor.</p>
+                    <video src="animation1.mp4" controls></video>
+                </div>
+            </div>
+
+            <!-- Oyun Kısmı -->
+            <div class="sub-section" id="oyun">
+                <h3>Oyun</h3>
+                <div class="project-content">
+                    <h4>Oyun 1</h4>
+                    <p>Açıklama: Bu oyun, macera dolu bir dünyaya sahip.</p>
+                    <a href="https://oyunlinki.com" target="_blank">Oyunu İncele</a>
+                    <img src="game1.jpg" alt="Oyun Görseli">
+                </div>
             </div>
         </section>
 
         <!-- Tutorials Bölümü -->
         <section id="tutorials">
-            <h2>Game Developing Tutorials</h2>
+            <h2>Oyun Geliştirme Eğitimleri</h2>
             <div>
                 <h3>Unity ile Basit Bir Oyun Yapımı</h3>
                 <p>Bu eğitimi takip ederek basit bir top-down shooter oyunu yapabilirsiniz.</p>
-            </div>
-            <div>
-                <h3>C# ile Karakter Kontrolü</h3>
-                <p>Bu eğitimde karakter hareketleri ve animasyonları hakkında bilgi sahibi olacaksınız.</p>
             </div>
         </section>
     </div>
@@ -107,17 +119,36 @@
     </footer>
 
     <script>
-        // Sayfa ilk açıldığında "Hakkında" bölümünü göster
-        document.getElementById("about").style.display = "block";
-
         function showSection(sectionId) {
-            // Tüm bölümleri gizle
             const sections = document.querySelectorAll("section");
-            sections.forEach(section => section.style.display = "none");
+            sections.forEach(section => {
+                section.classList.remove("active");
+                section.style.opacity = 0;
+                section.style.transform = "scale(0.9)";
+            });
+            const activeSection = document.getElementById(sectionId);
+            activeSection.classList.add("active");
+            setTimeout(() => {
+                activeSection.style.opacity = 1;
+                activeSection.style.transform = "scale(1)";
+            }, 100);
+            switchTheme(sectionId);
+        }
 
-            // Seçilen bölümü göster
-            document.getElementById(sectionId).style.display = "block";
+        function showProjectSection(projectSectionId) {
+            const projectSections = document.querySelectorAll("#projects .sub-section");
+            projectSections.forEach(section => section.classList.remove("active"));
+            document.getElementById(projectSectionId).classList.add("active");
+        }
+
+        function switchTheme(sectionId) {
+            const body = document.body;
+            body.classList.remove("theme-about", "theme-projects", "theme-tutorials");
+            if (sectionId === "about") body.classList.add("theme-about");
+            else if (sectionId === "projects") body.classList.add("theme-projects");
+            else if (sectionId === "tutorials") body.classList.add("theme-tutorials");
         }
     </script>
+
 </body>
 </html>
