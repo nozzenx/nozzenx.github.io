@@ -9,13 +9,33 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #d4d4d4;
+            color: #000000;
         }
         header {
-            background: #35424a;
-            color: #ffffff;
-            padding: 20px 0;
+            background-color: #3b3b3b;
+            color: #000000;
+            padding: 20px;
             text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-buttons button {
+            background-color: #b25938;
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
         }
         .container {
             width: 80%;
@@ -23,65 +43,81 @@
             overflow: hidden;
             padding: 20px;
         }
-        h1, h2 {
-            margin: 0;
-            padding: 10px 0;
-        }
-        .portfolio {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-        .project {
-            background: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin: 10px;
-            padding: 15px;
-            flex: 1 0 30%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        section {
+            display: none; /* Başlangıçta gizlenmiş */
         }
         footer {
             text-align: center;
-            padding: 10px 0;
-            background: #35424a;
-            color: #ffffff;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            padding: 10px;
+            background: #3b3b3b;
+            color: #000000;
         }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>Burak Bisneli</h1>
-        <p>Yazılım Geliştirici | Oyun Geliştirici | Tasarımcı</p>
+        <h1>Burak Bisneli - Game Developer</h1>
+        <div class="nav-buttons">
+            <button onclick="showSection('about')">Hakkında</button>
+            <button onclick="showSection('projects')">Projeler</button>
+            <button onclick="showSection('tutorials')">Tutorials</button>
+        </div>
     </header>
 
     <div class="container">
-        <h2>Projelerim</h2>
-        <div class="portfolio">
-            <div class="project">
+
+        <!-- Hakkında Bölümü -->
+        <section id="about">
+            <h2>Hakkında</h2>
+            <p>Merhaba, ben Burak Bisneli. Yazılım geliştirme ve oyun geliştirme alanında çalışıyorum. Bu sayfada projelerimi, başarılarımı ve ders içeriklerimi bulabilirsiniz.</p>
+        </section>
+
+        <!-- Projeler Bölümü -->
+        <section id="projects">
+            <h2>Projeler</h2>
+            <div>
                 <h3>Proje 1</h3>
-                <p>Proje 1 hakkında kısa bir açıklama. Burada projenin ne ile ilgili olduğunu yazabilirsin.</p>
-                <a href="#" target="_blank">Proje Linki</a>
+                <p>Bu proje, ... ile ilgilidir.</p>
+                <a href="#">Detaylı İncele</a>
             </div>
-            <div class="project">
+            <div>
                 <h3>Proje 2</h3>
-                <p>Proje 2 hakkında kısa bir açıklama. Burada projenin ne ile ilgili olduğunu yazabilirsin.</p>
-                <a href="#" target="_blank">Proje Linki</a>
+                <p>Bu proje, ... ile ilgilidir.</p>
+                <a href="#">Detaylı İncele</a>
             </div>
-            <div class="project">
-                <h3>Proje 3</h3>
-                <p>Proje 3 hakkında kısa bir açıklama. Burada projenin ne ile ilgili olduğunu yazabilirsin.</p>
-                <a href="#" target="_blank">Proje Linki</a>
+        </section>
+
+        <!-- Tutorials Bölümü -->
+        <section id="tutorials">
+            <h2>Game Developing Tutorials</h2>
+            <div>
+                <h3>Unity ile Basit Bir Oyun Yapımı</h3>
+                <p>Bu eğitimi takip ederek basit bir top-down shooter oyunu yapabilirsiniz.</p>
             </div>
-        </div>
+            <div>
+                <h3>C# ile Karakter Kontrolü</h3>
+                <p>Bu eğitimde karakter hareketleri ve animasyonları hakkında bilgi sahibi olacaksınız.</p>
+            </div>
+        </section>
     </div>
 
     <footer>
         <p>&copy; 2024 Burak Bisneli. Tüm Hakları Saklıdır.</p>
     </footer>
+
+    <script>
+        // Sayfa ilk açıldığında "Hakkında" bölümünü göster
+        document.getElementById("about").style.display = "block";
+
+        function showSection(sectionId) {
+            // Tüm bölümleri gizle
+            const sections = document.querySelectorAll("section");
+            sections.forEach(section => section.style.display = "none");
+
+            // Seçilen bölümü göster
+            document.getElementById(sectionId).style.display = "block";
+        }
+    </script>
 </body>
 </html>
-
