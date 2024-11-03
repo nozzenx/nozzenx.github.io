@@ -3,152 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burak Bisneli - Portfolyo</title>
+    <title>Burak Bisneli Portfolio</title>
     <style>
         /* Genel Stiller */
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; transition: background-color 0.5s ease, color 0.5s ease; }
-        .theme-about { background-color: #f0f8ff; color: #333; }
-        .theme-projects { background-color: #222; color: #f5f5f5; }
-        .theme-tutorials { background-color: #faf0e6; color: #333; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #3E362E;
+            color: #FFF4B7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-        header { background-color: #343a40; color: #ffffff; padding: 20px; text-align: center; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 1000; }
-        header h1 { margin: 0; font-size: 24px; font-weight: 600; flex-grow: 1; text-align: left; }
-        .nav-buttons { display: flex; gap: 15px; }
-        .nav-buttons button { background-color: #495057; color: #ffffff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-size: 16px; transition: background-color 0.3s ease, transform 0.1s ease; }
-        .nav-buttons button:hover { background-color: #6c757d; }
-        .nav-buttons button:active { transform: scale(0.95); }
+        .hidden {
+            display: none;
+        }
 
-        /* Animasyon ve Geçiş Efektleri */
-        .container { width: 80%; max-width: 1000px; margin: 50px auto; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); opacity: 0; transform: translateY(30px); transition: all 0.5s ease; }
-        .container.active { opacity: 1; transform: translateY(0); }
+        /* Giriş Ekranı Stili */
+        .intro {
+            text-align: center;
+            animation: fadeIn 2s;
+        }
 
-        section { display: none; opacity: 0; transform: scale(0.9); transition: all 0.4s ease; }
-        section.active { display: block; opacity: 1; transform: scale(1); }
+        .options button, .back-button {
+            background-color: #865D36;
+            color: #FFF4B7;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
 
-        /* Projeler İç Navigasyon */
-        .project-nav-buttons { display: flex; gap: 15px; margin: 20px 0; justify-content: center; }
-        .project-nav-buttons button { background-color: #007bff; color: #ffffff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 5px; font-size: 14px; transition: background-color 0.3s ease; }
-        .project-nav-buttons button:hover { background-color: #0056b3; }
+        .options button:hover, .back-button:hover {
+            transform: scale(1.1);
+            background-color: #93785B;
+        }
 
-        /* Projeler Alt Bölümleri */
-        .sub-section { margin-top: 20px; display: none; }
-        .sub-section.active { display: block; }
-        .project-content { margin-top: 15px; }
-        .project-content img { max-width: 100%; border-radius: 5px; margin: 10px 0; }
-        .project-content video { max-width: 100%; border-radius: 5px; margin: 10px 0; }
-        
-        footer { text-align: center; padding: 10px; background: #343a40; color: #ffffff; margin-top: 50px; }
+        /* İçerik Bölümü Stili */
+        .content-section {
+            text-align: center;
+            padding: 20px;
+            animation: slideIn 1s forwards;
+        }
 
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            font-size: 16px;
+        }
+
+        .project-buttons button {
+            background-color: #865D36;
+            color: #FFF4B7;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .project-buttons button:hover {
+            background-color: #AC8968;
+        }
+
+        .project-content {
+            background-color: #A69080;
+            color: #3E362E;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* Animasyonlar */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
     </style>
 </head>
-<body class="theme-about" onload="document.querySelector('.container').classList.add('active')">
-
-    <header>
-        <h1>Burak Bisneli - Oyun Geliştirici</h1>
-        <div class="nav-buttons">
+<body>
+    <!-- Giriş ekranı -->
+    <div class="intro" id="intro">
+        <h1>Hoşgeldiniz, ne görmek istersiniz?</h1>
+        <div class="options">
             <button onclick="showSection('about')">Hakkında</button>
             <button onclick="showSection('projects')">Projeler</button>
             <button onclick="showSection('tutorials')">Tutorials</button>
         </div>
-    </header>
-
-    <div class="container">
-
-        <!-- Hakkında Bölümü -->
-        <section id="about" class="active">
-            <h2>Hakkında</h2>
-            <p>Merhaba, ben Burak Bisneli. Yazılım geliştirme ve oyun geliştirme alanında çalışıyorum. Bu sayfada projelerimi, başarılarımı ve ders içeriklerimi bulabilirsiniz.</p>
-        </section>
-
-        <!-- Projeler Bölümü -->
-        <section id="projects">
-            <h2>Projeler</h2>
-
-            <!-- İç Navigasyon -->
-            <div class="project-nav-buttons">
-                <button onclick="showProjectSection('modelleme')">Modelleme</button>
-                <button onclick="showProjectSection('animasyon')">Animasyon</button>
-                <button onclick="showProjectSection('oyun')">Oyun</button>
-            </div>
-            
-            <!-- Modelleme Kısmı -->
-            <div class="sub-section" id="modelleme">
-                <h3>Modelleme</h3>
-                <div class="project-content">
-                    <h4>Model 1</h4>
-                    <p>Açıklama: Bu model, modern ve estetik bir tarzda tasarlandı.</p>
-                    <img src="model1.jpg" alt="Model 1 Görseli">
-                    <img src="model2.jpg" alt="Model 2 Görseli">
-                </div>
-            </div>
-
-            <!-- Animasyon Kısmı -->
-            <div class="sub-section" id="animasyon">
-                <h3>Animasyon</h3>
-                <div class="project-content">
-                    <h4>Animasyon 1</h4>
-                    <p>Açıklama: Bu animasyon, karakter hareketlerini gösteriyor.</p>
-                    <video src="animation1.mp4" controls></video>
-                </div>
-            </div>
-
-            <!-- Oyun Kısmı -->
-            <div class="sub-section" id="oyun">
-                <h3>Oyun</h3>
-                <div class="project-content">
-                    <h4>Oyun 1</h4>
-                    <p>Açıklama: Bu oyun, macera dolu bir dünyaya sahip.</p>
-                    <a href="https://oyunlinki.com" target="_blank">Oyunu İncele</a>
-                    <img src="game1.jpg" alt="Oyun Görseli">
-                </div>
-            </div>
-        </section>
-
-        <!-- Tutorials Bölümü -->
-        <section id="tutorials">
-            <h2>Oyun Geliştirme Eğitimleri</h2>
-            <div>
-                <h3>Unity ile Basit Bir Oyun Yapımı</h3>
-                <p>Bu eğitimi takip ederek basit bir top-down shooter oyunu yapabilirsiniz.</p>
-            </div>
-        </section>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Burak Bisneli. Tüm Hakları Saklıdır.</p>
-    </footer>
+    <!-- Hakkında Bölümü -->
+    <section id="about" class="content-section hidden">
+        <h2>Hakkında</h2>
+        <p>Buraya hakkınızdaki bilgileri ve sertifikalarınızı ekleyebilirsiniz.</p>
+        <button class="back-button" onclick="goBack()">Geri Dön</button>
+    </section>
+
+    <!-- Projeler Bölümü -->
+    <section id="projects" class="content-section hidden">
+        <h2>Projeler</h2>
+        <div class="project-buttons">
+            <button onclick="showProjectSection('modeling')">Modelleme</button>
+            <button onclick="showProjectSection('animation')">Animasyon</button>
+            <button onclick="showProjectSection('game')">Oyun</button>
+        </div>
+        <div id="modeling" class="project-content hidden">
+            <h3>Modelleme</h3>
+            <p>Modellerin açıklamaları ve resimleri burada olacak.</p>
+        </div>
+        <div id="animation" class="project-content hidden">
+            <h3>Animasyon</h3>
+            <p>Animasyon açıklamaları ve videolar burada olacak.</p>
+        </div>
+        <div id="game" class="project-content hidden">
+            <h3>Oyun</h3>
+            <p>Oyunların açıklamaları, linkleri ve resimleri burada olacak.</p>
+        </div>
+        <button class="back-button" onclick="goBack()">Geri Dön</button>
+    </section>
+
+    <!-- Tutorials Bölümü -->
+    <section id="tutorials" class="content-section hidden">
+        <h2>Tutorials</h2>
+        <p>Burada oyun geliştirme ile ilgili eğitimlerinizi paylaşabilirsiniz.</p>
+        <button class="back-button" onclick="goBack()">Geri Dön</button>
+    </section>
 
     <script>
+        // Bölüm gösterme fonksiyonu
         function showSection(sectionId) {
-            const sections = document.querySelectorAll("section");
-            sections.forEach(section => {
-                section.classList.remove("active");
-                section.style.opacity = 0;
-                section.style.transform = "scale(0.9)";
-            });
-            const activeSection = document.getElementById(sectionId);
-            activeSection.classList.add("active");
-            setTimeout(() => {
-                activeSection.style.opacity = 1;
-                activeSection.style.transform = "scale(1)";
-            }, 100);
-            switchTheme(sectionId);
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.add('hidden'));
+
+            document.getElementById(sectionId).classList.remove('hidden');
+            document.getElementById('intro').classList.add('hidden');
         }
 
-        function showProjectSection(projectSectionId) {
-            const projectSections = document.querySelectorAll("#projects .sub-section");
-            projectSections.forEach(section => section.classList.remove("active"));
-            document.getElementById(projectSectionId).classList.add("active");
+        // Proje içerik gösterme fonksiyonu
+        function showProjectSection(projectId) {
+            const projectContents = document.querySelectorAll('.project-content');
+            projectContents.forEach(content => content.classList.add('hidden'));
+
+            document.getElementById(projectId).classList.remove('hidden');
         }
 
-        function switchTheme(sectionId) {
-            const body = document.body;
-            body.classList.remove("theme-about", "theme-projects", "theme-tutorials");
-            if (sectionId === "about") body.classList.add("theme-about");
-            else if (sectionId === "projects") body.classList.add("theme-projects");
-            else if (sectionId === "tutorials") body.classList.add("theme-tutorials");
+        // Geri dön fonksiyonu
+        function goBack() {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.add('hidden'));
+            
+            document.getElementById('intro').classList.remove('hidden');
         }
     </script>
-
 </body>
 </html>
