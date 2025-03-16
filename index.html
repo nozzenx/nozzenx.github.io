@@ -1,169 +1,20 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burak Bisneli Portfolio</title>
-    <style>
-        /* Genel Stiller */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #3E362E;
-            color: #FFF4B7;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-        .hidden {
-            display: none;
-        }
+layout: wrapper
+---
 
-        /* Giriş Ekranı Stili */
-        .intro {
-            text-align: center;
-            animation: fadeIn 2s;
-        }
+{% include hero.html%}
 
-        .options button, .back-button {
-            background-color: #865D36;
-            color: #FFF4B7;
-            border: none;
-            padding: 10px 20px;
-            margin: 10px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: transform 0.3s, background-color 0.3s;
-        }
 
-        .options button:hover, .back-button:hover {
-            transform: scale(1.1);
-            background-color: #93785B;
-        }
 
-        /* İçerik Bölümü Stili */
-        .content-section {
-            text-align: center;
-            padding: 20px;
-            animation: slideIn 1s forwards;
-        }
-
-        .back-button {
-            display: block;
-            margin: 20px auto;
-            font-size: 16px;
-        }
-
-        .project-buttons button {
-            background-color: #865D36;
-            color: #FFF4B7;
-            border: none;
-            padding: 10px 20px;
-            margin: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .project-buttons button:hover {
-            background-color: #AC8968;
-        }
-
-        .project-content {
-            background-color: #A69080;
-            color: #3E362E;
-            margin: 10px;
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        /* Animasyonlar */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-    </style>
-</head>
-<body>
-    <!-- Giriş ekranı -->
-    <div class="intro" id="intro">
-        <h1>Burak Bisneli - Portfolio</h1>
-        <div class="options">
-            <button onclick="showSection('about')">About</button>
-            <button onclick="showSection('projects')">Projects</button>
-            <button onclick="showSection('tutorials')">Tutorials</button>
-        </div>
-    </div>
-
-    <!-- Hakkında Bölümü -->
-    <section id="about" class="content-section hidden">
-        <h2>About</h2>
-        <p>About section.</p>
-        <button class="back-button" onclick="goBack()">Geri Dön</button>
-    </section>
-
-    <!-- Projeler Bölümü -->
-    <section id="projects" class="content-section hidden">
-        <h2>Projects</h2>
-        <div class="project-buttons">
-            <button onclick="showProjectSection('modeling')">Modelleme</button>
-            <button onclick="showProjectSection('animation')">Animasyon</button>
-            <button onclick="showProjectSection('game')">Oyun</button>
-        </div>
-        <div id="modeling" class="project-content hidden">
-            <h3>Modelleme</h3>
-            <p>Modellerin açıklamaları ve resimleri burada olacak.</p>
-        </div>
-        <div id="animation" class="project-content hidden">
-            <h3>Animasyon</h3>
-            <p>Animasyon açıklamaları ve videolar burada olacak.</p>
-        </div>
-        <div id="game" class="project-content hidden">
-            <h3>Oyun</h3>
-            <p>Oyunların açıklamaları, linkleri ve resimleri burada olacak.</p>
-        </div>
-        <button class="back-button" onclick="goBack()">Geri Dön</button>
-    </section>
-
-    <!-- Tutorials Bölümü -->
-    <section id="tutorials" class="content-section hidden">
-        <h2>Tutorials</h2>
-        <p>Tutorials section.</p>
-        <button class="back-button" onclick="goBack()">Geri Dön</button>
-    </section>
-
-    <script>
-        // Bölüm gösterme fonksiyonu
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => section.classList.add('hidden'));
-
-            document.getElementById(sectionId).classList.remove('hidden');
-            document.getElementById('intro').classList.add('hidden');
-        }
-
-        // Proje içerik gösterme fonksiyonu
-        function showProjectSection(projectId) {
-            const projectContents = document.querySelectorAll('.project-content');
-            projectContents.forEach(content => content.classList.add('hidden'));
-
-            document.getElementById(projectId).classList.remove('hidden');
-        }
-
-        // Geri dön fonksiyonu
-        function goBack() {
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => section.classList.add('hidden'));
-            
-            document.getElementById('intro').classList.remove('hidden');
-        }
-    </script>
-</body>
-</html>
+<div class="arrow"> 
+    <a href="#projects">
+        More About Me
+    <i class="fa-solid fa-angles-down"></i>
+    </a> 
+</div>
+{% include projects.html%}
+{% include skills.html%}
+{% include contact.html%}
