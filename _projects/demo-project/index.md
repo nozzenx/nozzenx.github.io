@@ -1,22 +1,34 @@
 ---
 layout: post
-title: Super Heavy Booster Catch (Demo Only)
-description:  (I have never been employed by / affiliated with SpaceX. This is for demo use only) 
-    Developing the Super Heavy booster catch project involves designing a robust launch tower with "chopstick" arms, advanced control systems for precise booster alignment, and integrating sophisticated software for real-time trajectory adjustments and structural engineering to handle immense forces.
+title: 3D Door and Robot Arm Animation
+description:  This project is my final project for the '3D Animation for Games' course in the 2nd year of the Digital Game Design Department at İstinye University. A mine cart passes through a relatively complex gate, and a robotic arm picks up the carried basket and places it next to the other baskets. It was completed on January 15, 2025.
+
 skills: 
-  - Structural analysis
-  - Aerodynamic design
-  - Propulsion system integration
-  - Control Algorithem 
-  - Welding
-  - Metal forming
-  - Thermal simulation
+  - 3D Modelling
+  - 3D Animation
+  - Maya
 
-main-image: /project2.jpg
+main-image: /DoorAndRobotArmAnimationBirdeye.png
 ---
 
 ---
-# Header 1 
+# Youtube Video of Animation
+{% include youtube-video.html id="-iq_h-CbHqA" autoplay= "false"%}
+
+---
+
+# Diffrent Angle Footages
+## Robot Arm
+Its a robot arm with controller rig.
+{% include image-gallery.html images="DoorAndRobotArmAnimationRobotArmView.png" height="400" %} 
+
+## Complex Door
+This is a door with a four-lock mechanism.
+{% include image-gallery.html images="DoorAndRobotArmAnimationDoorView.png" height="400" %} 
+
+---
+
+<!-- # Header 1 
 Used for the title (already generated automatically at the top)
 ## Header 2  
 Use this for the header of each section
@@ -109,6 +121,6 @@ console.log(x);
 | Row 1, Col 1 | Row 1, Col 2 |
 | Row 2, Col 1 | Row 2, Col 2 |
 
-make sure to leave aline betwen the table and the header
+make sure to leave aline betwen the table and the header -->
 
 
