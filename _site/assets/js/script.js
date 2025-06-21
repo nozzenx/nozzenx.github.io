@@ -1,3 +1,4 @@
+// Add to your existing JavaScript file or create a new one
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const mobileNav = document.querySelector('.mobile-nav');
