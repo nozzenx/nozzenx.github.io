@@ -12,6 +12,7 @@ You can find the official game here: Kingdom: https://store.steampowered.com/app
 skills: 
   - Unity
   - C#
+  -Game Design
 
 main-image: /kingdomMain.png
 ---
