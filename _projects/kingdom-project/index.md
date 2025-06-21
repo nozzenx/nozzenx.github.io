@@ -13,7 +13,7 @@ skills:
   - Unity
   - C#
 
-main-image: /kingdom-main.jpg
+main-image: /kingdom-main.png
 ---
 
 ---
@@ -24,31 +24,31 @@ main-image: /kingdom-main.jpg
 
 # In-Game Screenshots
 ## 1
-{% include image-gallery.html images="ss1.jpg" height="400" %} 
+{% include image-gallery.html images="ss1.png" height="400" %} 
 
 ## 2
-{% include image-gallery.html images="ss2.jpg" height="400" %} 
+{% include image-gallery.html images="ss2.png" height="400" %} 
 
 ## 3
-{% include image-gallery.html images="ss3.jpg" height="400" %} 
+{% include image-gallery.html images="ss3.png" height="400" %} 
 
 ## 4
-{% include image-gallery.html images="ss4.jpg" height="400" %} 
+{% include image-gallery.html images="ss4.png" height="400" %} 
 
 ## 5
-{% include image-gallery.html images="ss5.jpg" height="400" %} 
+{% include image-gallery.html images="ss5.png" height="400" %} 
 
 ## 6
-{% include image-gallery.html images="ss6.jpg" height="400" %} 
+{% include image-gallery.html images="ss6.png" height="400" %} 
 
 ## 7
-{% include image-gallery.html images="ss7.jpg" height="400" %} 
+{% include image-gallery.html images="ss7.png" height="400" %} 
 
 ## 8
-{% include image-gallery.html images="ss8.jpg" height="400" %} 
+{% include image-gallery.html images="ss8.png" height="400" %} 
 
 ## 9
-{% include image-gallery.html images="ss9.jpg" height="400" %} 
+{% include image-gallery.html images="ss9.png" height="400" %} 
 
 
 
