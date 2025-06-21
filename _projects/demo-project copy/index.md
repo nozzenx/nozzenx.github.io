@@ -1,14 +1,19 @@
 ---
 layout: post
-title: 3D Door and Robot Arm Animation
-description:  This project is my final project for the '3D Animation for Games' course in the 2nd year of the Digital Game Design Department at İstinye University. A mine cart passes through a relatively complex gate, and a robotic arm picks up the carried basket and places it next to the other baskets. It was completed on January 15, 2025.
+title: Kingdom Destiny Of Babylon 
+description:  This project was developed as the final assignment for the "Game Design Studio 2" course in the 2nd year of the Digital Game Design Department at Istinye University. It is a reinterpretation and complete remake of an existing game, created with a new perspective.
+
+The project was completed by a team of three members (two designers and one programmer) over a period of two weeks. Inspired by the Kingdom game series, it was developed as if it were a DLC for Kingdom: Two Crowns, strictly for educational purposes. There is absolutely no intention of making any profit from this project.
+
+The game was built from scratch using the Unity game engine. Due to the short development time, it may contain some bugs, but it is fully playable.
+
+You can find the official game here: Kingdom: https://store.steampowered.com/app/701160/Kingdom_Two_Crowns/
 
 skills: 
-  - 3D Modelling
-  - 3D Animation
-  - Maya
+  - Unity
+  - C#
 
-main-image: /DoorAndRobotArmAnimationBirdeye.png
+main-image: /kingdom-main.png
 ---
 
 ---
