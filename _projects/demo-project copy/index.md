@@ -13,7 +13,7 @@ skills:
   - Unity
   - C#
 
-main-image: /kingdom-main.png
+main-image: /kingdomMain.png
 ---
 
 ---
